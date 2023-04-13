@@ -12,7 +12,7 @@ Logo após a ordem de serviço ser criada, tanto o serviço _REST_ quanto _gRPC_
 
 O diretório _internal_ é aonde ficam guardados os pacotes privados que compõem o coração da aplicação. Esse projeto é construído com base na _Clean Architecture_, portanto, sob esse diretório, estão: _entity_, _event_, _infra_ e _usecase_.
 
-Sob o diretório _entity_, há uma entidade que valida e calcula o preço final de _Order_. E sob a pasta _usecase_, o caso de uso é reponsável por receber os dados e orquestrar o processo de: criar uma ordem, inserir no banco de dados e disparar um evento de criação dessa ordem.
+Sob o diretório _entity_, há uma entidade que valida e calcula o preço final de _Order_. E sob o diretório _usecase_, o caso de uso é responsável por receber os dados e orquestrar o processo de: criar uma ordem, inserir no banco de dados e disparar um evento de criação dessa ordem.
 
 #### Infraestrutura
 
