@@ -4,9 +4,12 @@ Este desafio é construído sobre o projeto final, onde se junta tudo que foi ap
 
 Em termos de negócio, o projeto consiste em criar uma ordem de serviço, onde é informado o preço e a taxa e o sistema calcula o preço final.
 
-Ao rodar a aplicação, um único binário sobe um _web server_, um servidor _GraphQL_ e um servidor _gRPC_. Nos 3 formatos de comunicação, é possível incluir uma nova ordem. Obviamente, percebe-se o uso de _goroutines_ ao subir a aplicação.
+1. Ao rodar a aplicação, um único binário sobe um _web server_, um servidor _GraphQL_ e um servidor _gRPC_;
+2. Nos 3 formatos de comunicação, é possível incluir uma nova ordem. Obviamente, percebe-se o uso de _goroutines_ ao subir a aplicação;
+3. Logo após a ordem de serviço ser criada, tanto o serviço _REST_ quanto _gRPC_ quanto a operação _GraphQL_ disparam um evento para enviar a mensagem com dados da ordem ao _RabbitMQ_;
+4. É possível também, a qualquer sistema que se comunicar com o _RabbitMQ_, acessar a mensagem e se comunicar.
 
-Logo após a ordem de serviço ser criada, tanto o serviço _REST_ quanto _gRPC_ quanto a operação _GraphQL_ disparam um evento para enviar a mensagem com dados da ordem ao _RabbitMQ_. Assim, é possível também, a qualquer sistema que se comunicar com o _RabbitMQ_, acessar a mensagem e se comunicar.
+> gRPC é um formato de comunicação comumente utilizado ao incorporar a funcionalidade de chat para usuários nas aplicações.
 
 #### Entity & Usecase
 
