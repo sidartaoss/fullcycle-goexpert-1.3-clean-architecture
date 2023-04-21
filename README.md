@@ -9,7 +9,7 @@ Em termos de negócio, o projeto consiste em criar uma ordem de serviço, onde �
 3. Logo após a ordem de serviço ser criada, tanto o serviço _REST_ quanto _gRPC_ quanto a operação _GraphQL_ disparam um evento para enviar a mensagem com dados da ordem ao _RabbitMQ_;
 4. É possível também, a qualquer sistema que se comunicar com o _RabbitMQ_, acessar a mensagem e se comunicar.
 
-> gRPC é um formato de comunicação comumente utilizado ao integrar a funcionalidade de chat para os usuários nas aplicações.
+- _gRPC_ é um formato de comunicação comumente utilizado para incorporar a funcionalidade de _chat_ para usuários nas aplicações.
 
 #### Entity & Usecase
 
