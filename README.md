@@ -9,8 +9,18 @@ Em termos de negócio, o projeto consiste em criar uma ordem de serviço, onde �
 3. Logo após a ordem de serviço ser criada, tanto o serviço _REST_ quanto _gRPC_ quanto a operação _GraphQL_ disparam um evento para enviar a mensagem com dados da ordem ao _RabbitMQ_;
 4. É possível também, a qualquer sistema que se comunicar com o _RabbitMQ_, acessar a mensagem e se comunicar.
 
-- _gRPC_ é um formato de comunicação comumente utilizado para incorporar a funcionalidade de _chat_ para usuários nas aplicações.
-
+> gRPC
+- _gRPC_ é um formato de comunicação que trabalha trafegando arquivos binários (_Protocol Buffers_) ao invés de _JSON_. Portanto, o processo de serialização (_CPU_) é mais leve do que _JSON_, gasta menos recursos de rede e possui baixa latência. Além disso, o _gRPC_ é construído sobre o _HTTP/2_. O _HTTP/2_ também trafega dados binários, ao invés de texto, como no _HTTP 1.1_, utiliza a mesma conexão _TCP_ para enviar e receber dados do cliente e servidor (_Multiplex_), os _headers_ são binários e comprimidos, gasta menos recursos de rede e também possui baixa latência. 
+- Quando usar?
+  - Recomenda-se usar quando:
+    - A comunicação é entre microsserviços;
+    - O cenário de implementação exige comunicação síncrona, sem a opção de trabalhar com mensageria;
+    - É um requisito comunicação muito rápida (instantânea) e eficiente. (_REST_, por exemplo, não é a forma mais rápida e eficiente para realizar esse tipo de comunicação; há outros formatos de comunicação mais rápidos.)
+- Cenários de uso?
+  - Quando a comunicação em tempo real é um requisito. Por exemplo, aplicações de _chat_.
+- Quando não usar?
+  - Recomenda-se não utilizar quando a comunicação é entre _browser_ e servidor. Por quê? Porque é uma tecnologia que não está madura ainda. Neste caso, _REST_ é uma opção.
+  
 #### Entity & Usecase
 
 O diretório _internal_ é aonde ficam guardados os pacotes privados que compõem o coração da aplicação. Esse projeto é construído com base na _Clean Architecture_, portanto, sob esse diretório, estão: _entity_, _event_, _infra_ e _usecase_.
